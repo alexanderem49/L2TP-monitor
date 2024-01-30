@@ -60,7 +60,7 @@ class Monitor:
     sessionlist  = self.get_sessions()
     userstats    = self.get_userstats(sessionlist)
     fstring      = self.format_userstats(userstats)
-    print fstring,
+    print (fstring),
 
     if interval is 0:
       return
@@ -71,7 +71,7 @@ class Monitor:
       userstats = self.get_userstats(sessionlist)
       # Clear previous stats
       print (fstring.count('\n') * '\033[1A') + len(fstring.split('\n')[0])*' ' + '\r',
-      print self.format_userstats(userstats),
+      print (self.format_userstats(userstats)),
       time.sleep(interval)
 
   def get_sessions(self):
@@ -89,9 +89,9 @@ class Monitor:
       if logfile_data:
         logfile_data.close()
 
-      print "Reading %s" % logfile,
+      print ("Reading %s" % logfile),
       sys.stdout.flush()
-      print "\r" + " " * (8+len(logfile)) + "\r",
+      print ("\r" + " " * (8+len(logfile)) + "\r"),
 
       if ".gz" in logfile:
         logfile_data = gzip.open(logfile, "r")
@@ -281,11 +281,11 @@ if __name__ == "__main__":
   logrotate = False
 
   if '--help' in sys.argv or '-h' in sys.argv:
-    print 'pptpd-monitor.py [OPTIONS]\n', \
+    print ('pptpd-monitor.py [OPTIONS]\n', \
           '\n', \
           '  -h,--help      Show help\n', \
           '  --watch        Continuously update\n', \
-          '  --rotate       Include logrotated files (*.gz)'
+          '  --rotate       Include logrotated files (*.gz)')
     sys.exit(0)
 
   if '--rotate' in sys.argv:
