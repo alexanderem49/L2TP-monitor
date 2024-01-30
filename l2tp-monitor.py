@@ -62,7 +62,7 @@ class Monitor:
     fstring      = self.format_userstats(userstats)
     print (fstring),
 
-    if interval is 0:
+    if interval == 0:
       return
 
     time.sleep(interval)
@@ -241,7 +241,7 @@ class Monitor:
     fstring += "CRX".rjust(8)
     fstring += "Duration/Last seen".rjust(20)
     fstring += "\n"
-    for username in sorted(users.keys()):
+    for username in users.keys():
       user = users[username]
 
       if user['ppp_remoteip4']:
