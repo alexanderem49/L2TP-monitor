@@ -25,7 +25,7 @@ def getInterfaceTotals(interface):
   
   r_ipconfig = re.compile(r"RX bytes:(\d+) .+  TX bytes:(\d+)")
   for line in result[0].split(bytes('\n', 'UTF-8')):
-    m_ipconfig = r_ipconfig.search(line)
+    m_ipconfig = r_ipconfig.search(line.decode('UTF-8'))
     if m_ipconfig:
       return (int(m_ipconfig.group(2)), int(m_ipconfig.group(1)))
   return (0, 0)
