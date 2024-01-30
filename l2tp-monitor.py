@@ -47,7 +47,7 @@ class Monitor:
   r_ppp_localip4        = re.compile(r"local IP address (\d+\.\d+\.\d+\.\d+)")
   r_ppp_exit            = re.compile(r"Exit.")
   
-  fmt_timestamp	= "%b %d %H:%M:%S" # Timestamp format as it appears in the logfile.
+  fmt_timestamp	= "%Y-%m-%dT%H:%M:%S.%f+00:00" # Timestamp format as it appears in the logfile.
 
   def __init__(self, logfile, logrotate=True):
     self.logfile   = logfile
